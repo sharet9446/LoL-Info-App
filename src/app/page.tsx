@@ -38,7 +38,7 @@ export default function Home() {
         <PlanCard>
           <PlanCardTitle>아이템 정보</PlanCardTitle>
           <PlanCardDescription>
-            게임 내 모든 아이템의 효과와 가격, 빌드 경로를 확인하세요.
+            게임 내 모든 아이템의 효과와 가격을 확인하세요.
           </PlanCardDescription>
           <PlanCardLink channel={"/items"} />
         </PlanCard>

@@ -23,8 +23,6 @@ export function PlanCardDescription({ children }: Props) {
 
 export function PlanCardLink({ channel }: { channel: string }) {
   return (
-    <Link href={channel} className="text-blue-400 hover:text-blue-300">
-      자세히 보기 →
-    </Link>
+    <Link href={channel} className="text-blue-400 hover:text-blue-300"></Link>
   );
 }
