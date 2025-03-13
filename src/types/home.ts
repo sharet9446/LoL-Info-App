@@ -1,5 +1,6 @@
-import { ReactNode } from "react";
-
-export interface Props {
-  children: ReactNode;
+export interface PlanCardProps {
+  title: string;
+  description: string;
+  channel: string;
+  className?: string;
 }
