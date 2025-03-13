@@ -5,7 +5,7 @@ import {
   PlanCardLink,
 } from "../components/ui/plan-card";
 
-export default function Home() {
+function Home() {
   return (
     <div className="flex flex-col items-center py-12">
       <h1 className="text-4xl font-bold text-white mb-6">
@@ -46,3 +46,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home;

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description: "리그 오브 레전드 챔피언, 아이템, 로테이션 정보를 제공합니다.",
 };
 
-export default function RootLayout({
+function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -77,3 +77,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+export default RootLayout;

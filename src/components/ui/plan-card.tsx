@@ -1,9 +1,5 @@
+import { Props } from "@/types/home";
 import Link from "next/link";
-import { ReactNode } from "react";
-
-interface Props {
-  children: ReactNode;
-}
 
 export function PlanCard({ children }: Props) {
   return (
