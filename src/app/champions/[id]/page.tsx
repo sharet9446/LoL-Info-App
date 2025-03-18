@@ -16,7 +16,7 @@ import React from "react";
 export async function generateMetadata({
   params,
 }: ChampionDetailProps): Promise<Metadata> {
-  const championName = params.id;
+  const championName = params.id.toLowerCase();
   const championDetail = await fetchChampionDetail(championName);
 
   return {
