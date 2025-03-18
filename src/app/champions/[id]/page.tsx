@@ -37,7 +37,7 @@ async function ChampionDetailPage({ params }: ChampionDetailProps) {
         {/* 배경 이미지 */}
         <div className="absolute inset-0 overflow-hidden rounded-xl h-64 -z-10">
           <Image
-            src={`${LOL_API_ADDRESS}img/champion/splash/${champion.id}_0.jpg`}
+            src={`${LOL_API_ADDRESS}/img/champion/splash/${champion.id}_0.jpg`}
             alt={champion.name}
             fill
             className="object-cover opacity-20 blur-sm"
