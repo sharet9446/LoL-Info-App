@@ -19,7 +19,7 @@ export default async function ChampionsPage() {
 
       <Grid>
         {championsArray.map((champion) => (
-          <ChampionCard key={champion.key} champion={champion} />
+          <ChampionCard champion={champion} key={champion.key} />
         ))}
       </Grid>
     </div>

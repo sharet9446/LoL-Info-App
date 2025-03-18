@@ -1,5 +1,5 @@
-// 스탯 이름을 한글로 변환하는 함수를 수정합니다.
-export function getStatName(statKey: string): string {
+// 스탯 이름을 한글로 변환
+export function translationStatName(statKey: string): string {
   const statNames: Record<string, string> = {
     FlatHPPoolMod: "체력",
     FlatMPPoolMod: "마나",
@@ -27,5 +27,19 @@ export function getStatName(statKey: string): string {
     FlatGoldPer10Mod: "10초당 골드",
   };
 
-  return statNames[statKey] || "기타 능력치";
+  return statNames[statKey];
+}
+
+// 역할 이름을 한글로 변환
+export function translationTagName(tagsKey: string): string {
+  const tagNames: Record<string, string> = {
+    Assassin: "암살자",
+    Fighter: "전사",
+    Mage: "마법사",
+    Marksman: "원거리 딜러",
+    Support: "서포터",
+    Tank: "탱커",
+  };
+
+  return tagNames[tagsKey];
 }

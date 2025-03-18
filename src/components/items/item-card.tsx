@@ -1,7 +1,7 @@
 import { Item } from "@/types/item";
 import Image from "next/image";
 import { LOL_API_ADDRESS, LOL_VER } from "@/constants/lol-api";
-import { getStatName } from "@/utils/translation";
+import { translationStatName } from "@/utils/translation";
 
 function ItemCard({ item }: { item: Item }) {
   return (
@@ -41,7 +41,9 @@ function ItemCard({ item }: { item: Item }) {
                 {item.stats &&
                   Object.entries(item.stats).map(([key, value]) => (
                     <div key={key} className="flex items-center text-sm">
-                      <span className="text-gray-400">{getStatName(key)}:</span>
+                      <span className="text-gray-400">
+                        {translationStatName(key)}:
+                      </span>
                       <span className="ml-1 text-blue-400">
                         {key.includes("Percent")
                           ? `${((value as number) * 100).toFixed(0)}%`
