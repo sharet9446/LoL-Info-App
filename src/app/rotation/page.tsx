@@ -14,7 +14,7 @@ function RotationPage() {
   } = useQuery({
     queryKey: ["rotation"],
     queryFn: async () => {
-      const response = await fetch("https://lo-l-info-app.vercel.app/api/apis");
+      const response = await fetch("https://lo-l-info-app.vercel.app/apis/api");
       if (!response.ok) {
         throw new Error("로테이션 데이터를 가져오는데 실패했습니다");
       }
