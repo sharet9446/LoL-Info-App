@@ -6,14 +6,12 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { LOL_API_ADDRESS } from "@/constants/lol-api";
+import { LANGUAGE, LOL_API_ADDRESS, LOL_VER } from "@/constants/lol-api";
 import { ChampionDetailProps } from "@/types/champion";
 import { translationTagName } from "@/utils/translation";
 import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
-
-export const dynamicParams = true;
 
 export async function generateMetadata({
   params,
@@ -27,10 +25,21 @@ export async function generateMetadata({
   };
 }
 
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const res = await fetch(
+    `${LOL_API_ADDRESS}/${LOL_VER}/data/${LANGUAGE}/champion.json`
+  );
+  const data = await res.json();
+  const champions = Object.keys(data.data);
+  return champions.map((champion) => ({ id: champion }));
+}
+
 async function ChampionDetailPage({ params }: ChampionDetailProps) {
   const championDetail = await fetchChampionDetail(params.id);
   const championDetailArray = Object.values(championDetail);
-  const champion = championDetailArray[0] || {};
+  const champion = championDetailArray[0];
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 animate-fade-in">
