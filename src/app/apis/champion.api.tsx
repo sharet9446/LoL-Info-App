@@ -18,8 +18,13 @@ export async function fetchChampionDetail(name: string): Promise<Champion> {
   const res = await fetch(`${championDetailApi}/${name}.json`, {
     cache: "no-store",
   });
-  const data = await res.json();
-  const champions = data.data;
 
-  return champions;
+  if (!res.ok) {
+    throw new Error(` ${name}의 세부 정보를 가져오지 못했습니다.`);
+  }
+
+  const data = await res.json();
+  const champion = data.data;
+
+  return champion;
 }
