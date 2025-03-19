@@ -9,23 +9,8 @@ import {
 import { LOL_API_ADDRESS } from "@/constants/lol-api";
 import { ChampionDetailProps } from "@/types/champion";
 import { translationTagName } from "@/utils/translation";
-import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
-
-export const dynamic = "force-dynamic";
-
-export async function generateMetadata({
-  params,
-}: ChampionDetailProps): Promise<Metadata> {
-  const championName = params.id;
-  const championDetail = await fetchChampionDetail(championName);
-
-  return {
-    title: `${championDetail[championName].name} - 챔피언 상세 정보`,
-    description: championDetail[championName].title,
-  };
-}
 
 async function ChampionDetailPage({ params }: ChampionDetailProps) {
   const championDetail = await fetchChampionDetail(params.id);
