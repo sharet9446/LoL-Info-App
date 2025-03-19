@@ -33,6 +33,7 @@ export async function generateStaticParams() {
   );
   const data = await res.json();
   const champions = Object.keys(data.data);
+  console.log("챔피언 목록:", champions);
   return champions.map((champion) => ({ id: champion.toLowerCase() }));
 }
 
