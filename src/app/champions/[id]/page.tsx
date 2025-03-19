@@ -9,12 +9,29 @@ import {
 import { LOL_API_ADDRESS } from "@/constants/lol-api";
 import { ChampionDetailProps } from "@/types/champion";
 import { translationTagName } from "@/utils/translation";
+import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
 
+export async function generateMetadata({
+  params,
+}: ChampionDetailProps): Promise<Metadata> {
+  const championName = params.id;
+  const championDetail = await fetchChampionDetail(championName);
+
+  return {
+    title: `${championDetail[championName].name} - 챔피언 상세 정보`,
+    description: championDetail[championName].title,
+  };
+}
+
 async function ChampionDetailPage({ params }: ChampionDetailProps) {
+  console.log("🚀 ~ ChampionDetailPage ~ params.id:", params.id);
+
   const championDetail = await fetchChampionDetail(params.id);
+  console.log("🚀 ~ ChampionDetailPage ~ championDetail:", championDetail);
   const championDetailArray = Object.values(championDetail);
+
   const champion = championDetailArray[0];
 
   return (
