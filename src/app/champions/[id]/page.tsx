@@ -6,7 +6,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { LOL_API_ADDRESS } from "@/constants/lol-api";
+import { LANGUAGE, LOL_API_ADDRESS, LOL_VER } from "@/constants/lol-api";
 import { ChampionDetailProps } from "@/types/champion";
 import { translationTagName } from "@/utils/translation";
 import { Metadata } from "next";
@@ -23,6 +23,16 @@ export async function generateMetadata({
     title: `${championDetail[championName].name} - 챔피언 상세 정보`,
     description: championDetail[championName].title,
   };
+}
+
+export async function generateStaticParams() {
+  const res = await fetch(
+    `${LOL_API_ADDRESS}/${LOL_VER}/data/${LANGUAGE}/champion.json`
+  );
+  const data = await res.json();
+  const champions = Object.keys(data.data);
+
+  return champions.map((champion) => ({ id: champion }));
 }
 
 async function ChampionDetailPage({ params }: ChampionDetailProps) {
