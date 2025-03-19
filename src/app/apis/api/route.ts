@@ -1,5 +1,3 @@
-"use server";
-
 import { RotationChampionIds } from "@/types/champion";
 
 export async function GET() {
