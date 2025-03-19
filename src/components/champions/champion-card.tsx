@@ -5,12 +5,7 @@ import Link from "next/link";
 
 export function ChampionCard({ champion }: { champion: ChampionDetail }) {
   return (
-    <Link
-      href={`/champions/${champion.id}`}
-      onClick={(e) => {
-        e.preventDefault();
-      }}
-    >
+    <Link href={`/champions/${champion.id}`}>
       <div className="bg-gray-900/70 rounded-xl overflow-hidden border border-gray-800 hover:border-blue-600 transition-all hover:shadow-lg hover:shadow-blue-500/10 transform hover:-translate-y-1 duration-300">
         <div className="relative h-40 overflow-hidden">
           <Image

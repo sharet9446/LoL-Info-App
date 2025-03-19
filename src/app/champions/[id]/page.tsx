@@ -13,6 +13,8 @@ import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({
   params,
 }: ChampionDetailProps): Promise<Metadata> {
